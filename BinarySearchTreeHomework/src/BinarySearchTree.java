@@ -162,11 +162,10 @@ public class BinarySearchTree<E extends Comparable<E>> {
 	// Method #2.
 	protected int depth(E val) {
 
+
 		/* IMPLEMENT THIS METHOD! */
 		
-		/* IMPLEMENT THIS METHOD! */
-		
-		// Check whether parameter is null, if so, return null.
+		// Check whether parameter is null, if so, return -1.
 		if (val == null) return -1;
 
 		Node foundNode = new Node(null);
