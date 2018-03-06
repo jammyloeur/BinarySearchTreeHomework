@@ -164,7 +164,50 @@ public class BinarySearchTree<E extends Comparable<E>> {
 
 		/* IMPLEMENT THIS METHOD! */
 		
-		return -2; // this line is here only so this code will compile if you don't modify it
+		/* IMPLEMENT THIS METHOD! */
+		
+		// Check whether parameter is null, if so, return null.
+		if (val == null) return -1;
+
+		Node foundNode = new Node(null);
+		foundNode = root;
+		int depth = 0;
+		
+		while (foundNode != null) {
+			int cmp = val.compareTo(foundNode.value);
+
+			// Check whether a match is found in the current node, if so, return the depth.
+			if (cmp == 0) {
+				return depth;
+			// Check whether value is less than the value of the current node.
+			} else if (cmp < 0) {
+				// Increment depth by 1.
+				depth++;
+				// If the left child is null, value is not contained in the BST, so depth is -1.
+				if (foundNode.leftChild == null) {
+					foundNode = null;
+					depth = -1;
+				// Assign the left child as the current node.
+				} else {
+					foundNode = foundNode.leftChild;
+				}
+			// Check whether value is greater than the value of the current node.
+			} else if (cmp > 0) {
+				// Increment depth by 1.
+				depth++;
+				// If the right child is null, value is not contained in the BST, so depth is -1.
+				if (foundNode.rightChild == null) {
+					foundNode = null;
+					depth = -1;
+				// Assign the right child as the current node.
+				} else {
+					foundNode = foundNode.rightChild;
+				}
+			}
+		}
+		
+		// Return to calling method.
+		return depth; 
 
 	}
 	
